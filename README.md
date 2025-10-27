@@ -6,6 +6,9 @@ The [Development Problem](#development-problem) requires you to build a web page
 
 The [Design Problem](#design-problem) requires you to analyze a particular feature of the Peter Millar site and offer suggestions to improve the UX, through a written response. Your solution should effectively communicate your ideas without relying on visuals.
 
+## Submission
+In order to submit this practical please fork the repo and send the completed, forked version in your response email.
+
 ## Development Problem
 
 For this portion of the practical, you are tasked with developing a web page based on [a design](https://www.figma.com/file/h2z4KJFwaT8h8pqYjL47Aq/UX-Developer-Practical?type=design&node-id=0-1&mode=design). The design is a (fake) marketing page for a particular product, but includes layout elements that are common in our work. Your solution should match the design and work well across various device sizes. The design file includes comps for desktop (1512w) and mobile (390w). You should use your best judgement in adapting the design for screen size ranges that aren't captured in the designs (such as the tablet range). Also refer to the Breakpoint Reference in the [Reference Materials](https://www.figma.com/file/h2z4KJFwaT8h8pqYjL47Aq/UX-Developer-Practical?type=design&node-id=36-498&mode=design) page of the design file. You may use additional breakpoints as needed, to make the design work for different sizes.
