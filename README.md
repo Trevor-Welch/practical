@@ -7,7 +7,7 @@ The [Development Problem](#development-problem) requires you to build a web page
 The [Design Problem](#design-problem) requires you to analyze a particular feature of the Peter Millar site and offer suggestions to improve the UX, through a written response. Your solution should effectively communicate your ideas without relying on visuals.
 
 ## Submission
-In order to submit this practical please fork the repo and send the completed, forked version in your response email.
+In order to submit this practical please fork the repo and send a link to the completed, forked version in your response email.
 
 ## Development Problem
 
