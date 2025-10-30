@@ -1,11 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Lora&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
-// Variables based on Figma file
+// VARIABLES
 $font-sans-serif: Inter, 'Helvetica Neue', sans-serif;
 $font-serif: 'Lora', 'Palatino', serif;
 $color-luxe-gray: #393A3F;
 $color-luxe-gray-light: #797B86;
 $color-white: #FFF;
+
+// BREAKPOINT
+$breakpoint-even-smaller: 320px;
+$breakpoint-extra-small: 400px;
+$breakpoint-mobile: 576px;
+$breakpoint-tablet: 992px;
+
+// MIXINS
+
+@mixin tablet-up {
+  @media (min-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+@mixin desktop-up {
+  @media (min-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
+// I added this breakpoint AFTER writing for 400-576px as the base styling, so it uses max-width instead
+// In a prod-environment I would've cleaned this up to use min-width consistently
+@mixin extra-small-down {
+  @media (max-width: $breakpoint-extra-small) {
+    @content;
+  }
+}
+
+@mixin even-smaller-down {
+  @media (max-width: $breakpoint-even-smaller) {
+    @content;
+  }
+}
+
+// GLOBAL STYLES
+
+// Base Styles
 
 :root {
   font-family: $font-sans-serif;
@@ -16,14 +54,422 @@ $color-white: #FFF;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: $color-luxe-gray;
   color: $color-white;
+  padding: 50px 0px;
+  margin: 0px;
+  gap: 50px;
+
+  @include tablet-up {
+    padding: 50px 15px;
+  }
+
+  @include desktop-up {
+    padding: 50px 30px;
+  }
 }
 
-h1 {
-  font-family: $font-serif;
+
+section {
+  width: 100%;
+  max-width: 100%;
+}
+
+picture {
+  max-width: 100%;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+p {
+  font-size: 18px;
+  line-height: 1.5em;
+  margin: 0px;
+
+  @include tablet-up {
+    font-size: 20px;
+  }
+
+  @include extra-small-down {
+    font-size: 16px;
+  }
 }
 
 a {
   color: $color-white;
+}
+
+// Global Utility Classes
+
+.container {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0px 25px;
+
+  @include tablet-up {
+    padding: 0px;
+
+  }
+
+  @include extra-small-down {
+    padding: 0px 15px;
+  }
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+
+  @include tablet-up {
+    gap: 30px;
+  }
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.font-weight-normal {
+  font-weight: 400;
+}
+
+.font-weight-medium {
+  font-weight: 500;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+// SECTION STYLES
+
+// Header
+
+header {
+  max-width: 703px;
+
+  h1 {
+    font-family: $font-serif;
+    font-size: 44px;
+    letter-spacing: 6px;
+    margin: 0px;
+    margin-bottom: 25px;
+
+    @include tablet-up {
+      font-size: 60px;
+    }
+
+    @include extra-small-down {
+      font-size: 32px;
+      letter-spacing: 4px;
+    }
+  }
+
+  .eyebrow-text {
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 19px;
+
+  }
+}
+
+
+
+// Product Overview
+
+.product-overview {
+  position: relative;
+  
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 1200px;
+    object-fit: cover;
+    object-position: top;
+  }
+}
+
+
+.product-features {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  padding: 30px 20px;
+  box-sizing: border-box;
+
+  @include tablet-up {
+    height: 100%;
+  }
+
+  @include extra-small-down {
+    gap: 15px;
+  }
+
+  @include even-smaller-down {
+    position: relative;
+    padding: 30px 15px;
+    margin-top: -125%;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0 5%, #E8E7E2 10% 100%);
+  }
+}
+
+.feature {
+  position: relative;
+  display: flex;
+  gap: 15px;
+  color: $color-luxe-gray;
+
+  @include tablet-up {
+    color: $color-white;
+    padding-top: 6px;
+    position: absolute;
+    width: 100%;
+    max-width: 600px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 0.7px;
+      background: $color-white;
+      left: 0;
+      top: 0;
+      margin-bottom: 10px;
+      /* Gap between line and box */
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      background: $color-white;
+      border-radius: 50%;
+      right: -3px;
+      top: -3px;
+    }
+  }
+
+  @include desktop-up {
+    padding-top: 10px;
+  }
+
+  .feature-number {
+    color: $color-luxe-gray-light;
+    font-family: $font-serif;
+    font-size: 22px;
+
+    @include tablet-up {
+      display: none;
+    }
+
+    @include extra-small-down {
+      font-size: 18px;
+    }
+
+    @include even-smaller-down {
+      font-size: 16px;
+    }
+  }
+
+  h4 {
+    font-family: $font-serif;
+    font-size: 22px;
+    font-weight: 400;
+    margin: 0px;
+    margin-bottom: 1px;
+    text-shadow: 0px 1px 8px rgba(0, 0, 0, 0.35);
+
+    @include tablet-up {
+      font-size: 18px;
+    }
+
+    @include desktop-up {
+      font-size: 24px;
+    }
+
+    @include extra-small-down {
+      font-size: 18px;
+    }
+
+    @include even-smaller-down {
+      font-size: 16px;
+    }
+  }
+
+  p {
+    font-size: 15px;
+    line-height: 1.2em;
+    text-shadow: 0px 1px 5px rgba(0, 0, 0, 0.25);
+
+    @include tablet-up {
+      font-size: 13px;
+    }
+
+    @include desktop-up {
+      font-size: 16px;
+    }
+
+    @include extra-small-down {
+      font-size: 13px;
+    }
+
+    @include even-smaller-down {
+      font-size: 12px;
+    }
+  }
+
+  &[data-position="leather-straps"] {
+    @include tablet-up {
+      top: 25%;
+      right: 61%;
+      max-width: clamp( 200px, 28vw, 385px);
+      .col {
+        max-width: 258px;
+      }
+    }
+  }
+
+  &[data-position="main-compartment"] {
+    @include tablet-up {
+      top: 30%;
+      left: 56%;
+      justify-content: end;
+      max-width: clamp( 224px, 28vw, 385px);
+      .col {
+        max-width: 258px;
+      }
+      &::after {
+        right: auto;
+        left: -3px;
+      }
+    }
+  }
+
+  &[data-position="custom-zipper"] {
+    @include tablet-up {
+      top: 52%;
+      right: 54%;
+      max-width: clamp( 232px, 30vw, 428px);
+      .col {
+        max-width: 280px;
+      }
+    }
+  }
+
+  &[data-position="front-pocket"] {
+    @include tablet-up {
+      top: 60%;
+      left: 57%;
+      justify-content: end;
+      max-width: clamp( 224px, 28vw, 385px);
+      .col {
+        max-width: 258px;
+      }
+      &::after {
+        right: auto;
+        left: -3px;
+      }
+    }
+
+    @include desktop-up {
+      top: 57%;
+      left: 61%;
+    }
+  }
+
+  &[data-position="reinforced-bottom"] {
+    @include tablet-up {
+      top: 80%;
+      right: 60%;
+      overflow: visible;
+      max-width: 200px;
+      .col {
+        min-width: 340px;
+        max-width: 340px;
+      }
+
+      &::before {
+        max-width: 100%;
+      }
+
+      &::after {
+        right:auto;
+        left: 197px;
+      }
+    }
+
+    @include desktop-up {
+      top: 84%;
+      max-width: 171px;
+
+      .col {
+        min-width: 280px;
+        max-width: 280px;
+      }
+
+      &::before {
+        width: 171px;
+      }
+
+      &::after {
+        right:auto;
+        left: 168px;
+      }
+    }
+  }
+}
+
+
+// Product Description
+.product-description {
+  max-width: 599px;
+}
+
+// Image Set
+.product-image-set {
+  width: 100%;
+
+  .image-container {
+    flex: 1;
+  }
 }
