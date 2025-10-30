@@ -1,7 +1,7 @@
 # Peter Millar - Search Feature Analysis
 The following contains feedback as the website was on 10/29/2025.
 
-[Click Here for a version that has been ran through AI to make these notes easier to read!] (https://github.com/Trevor-Welch/practical/blob/main/des/README2.md)
+[Click Here for a version that has been ran through AI to make these notes easier to read!](https://github.com/Trevor-Welch/practical/blob/main/des/README2.md)
 
 ---
 
