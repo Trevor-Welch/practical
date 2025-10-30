@@ -15,17 +15,5 @@ This was more fun than I expected. Having the annotations go from floating eleme
 
 # Design Portion
 
-### Observations
-- A
-- B
-- C
-
-### What Could Be Better
-- A
-- B
-- C
-
-### How To Improve
-- A
-- B
-- C
+[README.md file of raw notes](https://github.com/Trevor-Welch/practical/blob/main/des/README.md)
+[README.md file of notes cleaned up with AI's help](https://github.com/Trevor-Welch/practical/blob/main/des/README.md)
