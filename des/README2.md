@@ -112,14 +112,6 @@ Users who realize their search query wasn't quite right face unnecessary frictio
 
 ---
 
-## Success Metrics
-- **Reduce search abandonment rate** by 20-30% by adding clear CTAs
-- **Increase SRP visits** from search overlay by 40%+ with "View All" button
-- **Improve product clicks from SRP** by 15-20% with visible filters
-- **Track re-search behavior** to measure impact of persistent search input
-
----
-
 ## Conclusion
 The Peter Millar search feature has a solid foundation—the Quick Shop feature is genuinely excellent, and the high conversion rate proves that users who reach products are ready to buy. The problem isn't the product selection or final experience; it's the gaps in the journey getting there. By adding explicit navigation (View All button), reducing filter friction, and maintaining search functionality throughout, we can bridge these gaps and convert more of those initial search intents into purchases.
 
